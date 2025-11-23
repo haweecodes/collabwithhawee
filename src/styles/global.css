@@ -1,0 +1,39 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', 'Verdana', 'Arial', sans-serif;
+    font-size: 11px;
+    background-color: #eff0f5;
+    color: #333;
+    line-height: 1.28;
+}
+
+a {
+    color: #3b5998;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Utilities */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.main-content {
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 50px;
+    /* Space for fixed header */
+    display: flex;
+    align-items: flex-start;
+}
