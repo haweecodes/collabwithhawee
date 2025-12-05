@@ -1,0 +1,57 @@
+.container {
+    padding-bottom: 50px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.section {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.sectionLabel {
+    color: var(--terminal-text-dim);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    opacity: 0.5;
+}
+
+.separatorLine {
+    height: 1px;
+    background: var(--terminal-text-dim);
+    flex: 1;
+}
+
+.separatorIcon {
+    margin: 0 15px;
+    color: var(--terminal-text);
+}
+
+.footer {
+    text-align: center;
+    color: var(--terminal-text-dim);
+    font-size: 0.8rem;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--terminal-text-dim);
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

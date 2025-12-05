@@ -1,0 +1,136 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: 'Courier New', monospace;
+    color: var(--terminal-text);
+}
+
+.card {
+    position: relative;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    padding: 20px;
+    background: rgba(0, 20, 0, 0.4);
+}
+
+/* Tactical Corners */
+.cornerTopLeft,
+.cornerTopRight,
+.cornerBottomLeft,
+.cornerBottomRight {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--terminal-text);
+    border-style: solid;
+}
+
+.cornerTopLeft {
+    top: -2px;
+    left: -2px;
+    border-width: 2px 0 0 2px;
+}
+
+.cornerTopRight {
+    top: -2px;
+    right: -2px;
+    border-width: 2px 2px 0 0;
+}
+
+.cornerBottomLeft {
+    bottom: -2px;
+    left: -2px;
+    border-width: 0 0 2px 2px;
+}
+
+.cornerBottomRight {
+    bottom: -2px;
+    right: -2px;
+    border-width: 0 2px 2px 0;
+}
+
+.header {
+    border-bottom: 1px solid var(--terminal-text-dim);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.imageSection {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 1px solid var(--terminal-text-dim);
+}
+
+.profileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.2) brightness(0.8) sepia(100%) hue-rotate(50deg) saturate(3);
+}
+
+.scanlineImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 51%);
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.infoSection {
+    flex: 1;
+}
+
+.row {
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.label {
+    width: 80px;
+    color: var(--terminal-text-dim);
+    font-weight: bold;
+}
+
+.value {
+    color: var(--terminal-text);
+    flex: 1;
+}
+
+.bio {
+    margin-top: 20px;
+    padding: 10px;
+    border-left: 2px solid var(--terminal-text);
+    background: rgba(0, 255, 65, 0.05);
+    line-height: 1.6;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}

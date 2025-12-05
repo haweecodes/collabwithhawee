@@ -1,0 +1,110 @@
+.terminalContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+.viewport {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+    background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 2px, 3px 100%;
+}
+
+.commandBar {
+    height: 60px;
+    background: #001100;
+    border-top: 2px solid var(--terminal-text);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 -5px 20px rgba(0, 255, 65, 0.1);
+    z-index: 10;
+}
+
+.prompt {
+    color: var(--terminal-text);
+    margin-right: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--terminal-text);
+}
+
+.inputInput {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    flex: 1;
+    outline: none;
+    caret-color: var(--terminal-text);
+}
+
+.outputLine {
+    white-space: pre-wrap;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Help Grid */
+.helpGrid {
+    display: grid;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.helpItem {
+    border: 1px solid var(--terminal-text-dim);
+    padding: 15px;
+    background: rgba(0, 20, 0, 0.5);
+}
+
+.helpItem span {
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px;
+}
+
+/* Scanline animation */
+.scanline {
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 65, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scan 6s linear infinite;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes scan {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
+}
+
+@media (max-width: 600px) {
+    .viewport {
+        padding: 15px;
+    }
+
+    .commandBar {
+        padding: 0 10px;
+    }
+
+    .prompt {
+        font-size: 0.9rem;
+    }
+}
