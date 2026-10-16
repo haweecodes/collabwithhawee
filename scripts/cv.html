@@ -1,0 +1,348 @@
+<!doctype html>
+<!--
+  Source for public/sajib-hawee-cv.pdf. Edit this file, then run `npm run cv`.
+  No phone number or email here: the PDF is public, linked from the site.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sajib Hawee CV</title>
+    <style>
+      @page {
+        size: Letter;
+        margin: 0.55in 0.6in;
+      }
+
+      :root {
+        --petrol: #0b3c5d;
+        --amber: #b45309;
+        --link: #0b5a8a;
+        --text: #16191d;
+        --muted: #4a4f57;
+        --border: #e3e6ea;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Manrope, system-ui, sans-serif;
+        font-size: 9.6pt;
+        line-height: 1.45;
+        color: var(--text);
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      strong {
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24pt;
+        font-weight: 800;
+        line-height: 1.1;
+        /* Tighter tracking or word spacing and parsers read the name as "SajibHawee". */
+        letter-spacing: -0.02em;
+        word-spacing: 0.08em;
+        color: var(--petrol);
+      }
+
+      /* The site's amber dot, drawn rather than typed so the name reads cleanly when parsed. */
+      h1::after {
+        content: '';
+        display: inline-block;
+        width: 0.2em;
+        height: 0.2em;
+        margin-left: 0.06em;
+        border-radius: 50%;
+        background: var(--amber);
+      }
+
+      .contact {
+        margin-top: 4pt;
+        color: var(--muted);
+      }
+
+      section {
+        margin-top: 13pt;
+      }
+
+      h2 {
+        margin-bottom: 6pt;
+        padding-bottom: 3pt;
+        border-bottom: 1px solid var(--border);
+        font-size: 11.5pt;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--petrol);
+        break-after: avoid;
+      }
+
+      .role {
+        break-inside: avoid;
+      }
+
+      .role + .role {
+        margin-top: 9pt;
+      }
+
+      /* A line break at a hyphen gets the word joined up ("productionready") when parsed. */
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12pt;
+        break-after: avoid;
+      }
+
+      h3 {
+        font-size: 10.5pt;
+        font-weight: 800;
+      }
+
+      h3 span {
+        font-weight: 600;
+      }
+
+      .when {
+        flex-shrink: 0;
+        color: var(--muted);
+      }
+
+      ul {
+        margin-top: 3pt;
+        padding-left: 13pt;
+      }
+
+      li {
+        break-inside: avoid;
+      }
+
+      li + li {
+        margin-top: 2pt;
+      }
+
+      li::marker {
+        color: var(--petrol);
+      }
+
+      .education p + p {
+        margin-top: 3pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sajib Hawee</h1>
+      <p class="contact">
+        Dhaka, Bangladesh (Remote) •
+        <a href="https://linkedin.com/in/sajib-hawee-2a818b154"
+          >linkedin.com/in/sajib-hawee-2a818b154</a
+        >
+      </p>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>
+        Senior Frontend Engineer with 7+ years of experience building scalable and accessible web
+        applications with React, TypeScript, and modern JavaScript ecosystems. Experienced in
+        frontend architecture, large-scale migrations, performance optimization, design systems,
+        testing, and developer experience. Proven track record working remotely with American teams
+        and leading cross-functional frontend initiatives. Open to relocation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key Skills</h2>
+      <p>
+        React • Next.js • TypeScript • JavaScript • Redux • SASS/BEM • NX • Vite • Webpack • Jest •
+        Playwright • WCAG 2.1 • Design Systems • Node.js • NestJS • CI/CD • AWS • Performance
+        Optimization • Frontend Architecture • Mentoring • Agile/Scrum
+      </p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>MonetizeNow <span>— Senior Frontend Engineer</span></h3>
+          <p class="when">Remote (USA) • 04/2024 – Present</p>
+        </div>
+        <ul>
+          <li>
+            Led frontend platform improvements across a complex SaaS product, focusing on
+            scalability, maintainability, and developer experience.
+          </li>
+          <li>
+            Drove migration to an NX monorepo, improving build times by <strong>25%</strong> and
+            release efficiency by <strong>30%</strong>.
+          </li>
+          <li>
+            Led migration from Webpack to Vite, reducing local build times by
+            <strong>40%</strong> and simplifying the CI/CD workflow.
+          </li>
+          <li>
+            Improved application performance by <strong>10%</strong> through modular architecture,
+            rendering optimisations, and frontend refactoring.
+          </li>
+          <li>
+            Expanded automated test coverage with Jest and Playwright by <strong>60%</strong>,
+            contributing to a <strong>30% reduction in regression defects</strong>.
+          </li>
+          <li>
+            Collaborated closely with backend engineers, product stakeholders, and designers to
+            deliver reliable, <span class="nowrap">production-ready</span> features.
+          </li>
+          <li>
+            Mentored junior engineers, contributed to code quality standards, and helped improve
+            team-wide frontend practices.
+          </li>
+          <li>
+            Owned and maintained supporting backend services (Express) to improve API reliability
+            and end-to-end product stability.
+          </li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>ShopUp <span>— Frontend Engineer</span></h3>
+          <p class="when">Dhaka, Bangladesh • 12/2021 – 04/2024</p>
+        </div>
+        <ul>
+          <li>
+            Built and maintained internal fintech applications supporting operational and financial
+            workflows at scale.
+          </li>
+          <li>
+            Developed validation-heavy user flows that improved process accuracy and helped reduce
+            cash leakage by <strong>35%</strong>.
+          </li>
+          <li>
+            Improved internal productivity by <strong>60%</strong> and reduced operational
+            processing time by <strong>25%</strong> through workflow and UI enhancements.
+          </li>
+          <li>
+            Refactored components and API interaction patterns, reducing unnecessary network
+            requests by <strong>75%</strong> and improving application responsiveness.
+          </li>
+          <li>Built reusable UI components and improved accessibility across key user journeys.</li>
+          <li>
+            Worked closely with product, backend, and business stakeholders to translate complex
+            requirements into maintainable frontend solutions.
+          </li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>SELISE Digital Platforms <span>— Frontend Engineer</span></h3>
+          <p class="when">Dhaka, Bangladesh • 09/2020 – 11/2021</p>
+        </div>
+        <ul>
+          <li>
+            Developed and maintained shared UI components for a cross-team design system, speeding
+            up development by <strong>25%</strong>.
+          </li>
+          <li>
+            Reduced code duplication by <strong>50%</strong> across multiple projects using modular
+            frontend architecture.
+          </li>
+          <li>
+            Improved an e-signature flow, reducing user errors by <strong>30%</strong> and
+            increasing satisfaction by <strong>40%</strong>.
+          </li>
+          <li>Built responsive, accessible components across devices.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>iQuantile Intelligent Technology <span>— Frontend Engineer</span></h3>
+          <p class="when">Dhaka, Bangladesh • 01/2018 – 08/2020</p>
+        </div>
+        <ul>
+          <li>
+            Built dashboards and POS systems with offline capability, improving data entry
+            efficiency by <strong>50%</strong>.
+          </li>
+          <li>Improved UI accessibility through ARIA roles and keyboard navigation.</li>
+          <li>
+            Reduced desktop application load time by <strong>50%</strong> through performance
+            optimization.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <p>
+        <strong>B.Sc. in Computer Science</strong> — American International University Bangladesh
+        (05/2015) (Credit Transferred)
+      </p>
+      <p>
+        <strong>B.Sc. in Computer Science</strong> — Adventist University of the Philippines
+        (12/2013)
+      </p>
+    </section>
+
+    <section>
+      <h2>Additional Information</h2>
+      <ul>
+        <li>
+          Experienced with <strong>CI/CD pipelines</strong> (GitLab, Bitbucket) and automated
+          <strong>AWS deployments</strong>
+        </li>
+        <li>Familiar with <strong>Agile</strong> methodologies</li>
+        <li>
+          Passionate about <strong>code quality, developer experience, and accessibility</strong>
+        </li>
+        <li>
+          Languages: <strong>English</strong> (Professional) • <strong>Bangla</strong> (Native) •
+          <strong>Hindi</strong> (Proficient) • <strong>Tagalog</strong> (Elementary proficiency)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          Guiddance - <a href="https://guiddance.vercel.app/">https://guiddance.vercel.app/</a> - A
+          DAP product which guides a user to visually follow steps to empower and activate users.
+        </li>
+        <li>
+          Typing Speed Checker -
+          <a href="https://typer-app-omega.vercel.app/">https://typer-app-omega.vercel.app/</a> - A
+          typing speed checker app
+        </li>
+        <li>
+          FlowWork -
+          <a href="https://haweecodes-work.vercel.app/">https://haweecodes-work.vercel.app/</a> - A
+          unified workplace app that lets you chat and create tasks
+          <span class="nowrap">from it</span>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

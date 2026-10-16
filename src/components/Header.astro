@@ -1,0 +1,160 @@
+---
+import { NAV_LINKS, SITE } from '../consts';
+
+interface Props {
+  /** On the home page the links jump to sections; elsewhere they go back to the home page. */
+  home?: boolean;
+}
+
+const { home = false } = Astro.props;
+const base = home ? '' : '/';
+---
+
+<header class="header">
+  <div class="bar">
+    <a class="logo" href={home ? '#top' : '/'}>
+      {SITE.name}
+    </a>
+    <nav aria-label="Main">
+      <ul class="links" role="list">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={`${base}#${link.id}`}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a class="resume" href={SITE.cvPath}>
+      Résumé
+    </a>
+  </div>
+</header>
+
+<style>
+  /* Stays at the top while the page scrolls. --header-height in tokens.css must match. */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-surface);
+  }
+
+  /* A divider that fades in once content scrolls under the header. Browsers without
+     scroll-driven animations show no divider, which is how the page looks at the top. */
+  .header::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 1px;
+    background: var(--color-border);
+    opacity: 0;
+  }
+
+  /* Longhands on purpose: the CSS minifier folds a full set into the `animation`
+     shorthand, and browsers reject scroll() there. */
+  @supports (animation-timeline: scroll()) {
+    .header::after {
+      animation-name: header-divider;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll();
+      animation-range: 0 24px;
+    }
+  }
+
+  @keyframes header-divider {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Phones: name and Résumé on the first row, the section links on the second. */
+  .bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'logo resume'
+      'nav nav';
+    align-items: center;
+    column-gap: 28px;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 8px 24px;
+  }
+
+  /* Wider screens: everything on one row, as in the design. */
+  @media (min-width: 48em) {
+    .bar {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 'logo nav resume';
+      padding-block: 14px;
+    }
+
+    nav {
+      justify-self: end;
+    }
+  }
+
+  .logo {
+    grid-area: logo;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-target);
+    font-size: var(--text-logo);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  /* The amber dot is decoration, so it has empty alt text and isn't read out. */
+  .logo::after {
+    content: '.';
+    content: '.' / '';
+    color: var(--color-accent);
+  }
+
+  nav {
+    grid-area: nav;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-nav);
+  }
+
+  @media (min-width: 48em) {
+    .links {
+      column-gap: 28px;
+    }
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-target);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .resume {
+    grid-area: resume;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-target);
+    padding: 0 18px;
+    border-radius: var(--radius-btn);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-size: var(--text-nav);
+    font-weight: 600;
+    text-decoration: none;
+  }
+</style>

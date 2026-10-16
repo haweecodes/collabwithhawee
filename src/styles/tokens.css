@@ -1,0 +1,50 @@
+:root {
+  --color-primary: #0b3c5d; /* petrol: headings, nav button, footer band */
+  --color-accent: #b45309; /* amber: results numbers, quote bar, logo dot */
+  --color-link: #0b5a8a;
+  --color-tint: #edf3f7; /* result cards, photo frame */
+  --color-tint-text: #2e4a5e;
+  --color-text: #16191d;
+  --color-text-muted: #4a4f57;
+  --color-text-subtle: #5a5f67;
+  --color-text-soft: #33373e; /* "Tools I reach for" column */
+  --color-border: #e3e6ea;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f1f2f4; /* screenshot frames */
+  --color-on-primary: #ffffff;
+  --color-on-primary-muted: #bfd2e0;
+  --color-footer-btn: #f59e0b;
+  --color-footer-btn-text: #0b2235;
+
+  --font: 'Manrope Variable', system-ui, sans-serif;
+  --weight-heading: 800;
+  --tracking-heading: -0.03em;
+  --radius: 10px;
+  --radius-band: 12px;
+  --radius-btn: 6px;
+  --container: 1040px;
+  --section-gap: 112px;
+  --tap-target: 44px;
+  /* Sticky header: two 44px rows plus 8px padding on phones, one row plus 14px from 768px. */
+  --header-height: 104px;
+
+  /* Type scale. h1 goes from 54px down to about 38px at 390px wide. */
+  --text-h1: clamp(2.375rem, 1.775rem + 2.46vw, 3.375rem);
+  --text-h2: 2rem; /* 32px */
+  --text-h3: 1.375rem; /* 22px */
+  --text-result: 3rem; /* 48px */
+  --text-cta: 2.125rem; /* 34px */
+  --text-quote: 1.75rem; /* 28px */
+  --text-logo: 1.5rem; /* 24px */
+  --text-lead: 1.3125rem; /* 21px */
+  --text-body: 1.125rem; /* 18px */
+  --text-nav: 1.0625rem; /* 17px */
+  --text-small: 0.9375rem; /* 15px */
+  --text-fine: 0.875rem; /* 14px */
+}
+
+@media (min-width: 48em) {
+  :root {
+    --header-height: 72px;
+  }
+}

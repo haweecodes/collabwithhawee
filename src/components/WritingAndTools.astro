@@ -1,0 +1,79 @@
+---
+import { SITE } from '../consts';
+import { mediumArticles } from '../data/medium';
+
+const monthYear = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<section class="section split">
+  <div id="writing" class="column">
+    <h2>Things I've written</h2>
+    <ul class="articles" role="list">
+      {mediumArticles.map((article) => (
+        <li>
+          <a href={article.url}>{article.title}</a>
+          <br />
+          <span class="meta">Medium · {monthYear.format(article.published)}</span>
+        </li>
+      ))}
+    </ul>
+    <a class="tap-link more" href={SITE.medium} rel="me">
+      More on Medium
+    </a>
+  </div>
+  <div class="column tools">
+    <h2>Tools I reach for</h2>
+    <p>
+      React, Next.js, TypeScript, Redux, Nx, Vite, Webpack, Jest, Playwright, SASS, Node.js, NestJS,
+      Express, AWS, GitLab and Bitbucket CI/CD.
+    </p>
+    <p>
+      <strong>Education:</strong> B.Sc. in Computer Science, American International University
+      Bangladesh.
+    </p>
+    <p>
+      <strong>Languages:</strong> English, Bangla, Hindi, and some Tagalog.
+    </p>
+  </div>
+</section>
+
+<style>
+  .split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+  }
+
+  .column {
+    display: flex;
+    flex: 1 1 380px;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .meta {
+    font-size: var(--text-small);
+    color: var(--color-text-subtle);
+  }
+
+  .more {
+    align-self: flex-start;
+  }
+
+  .tools p {
+    color: var(--color-text-soft);
+  }
+</style>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  /** Plain text in which **double asterisks** mark bold runs. */
+  text: string;
+}
+
+// Splitting on a capture group alternates plain and bold parts: [plain, bold, plain, ...].
+const parts = Astro.props.text.split(/\*\*(.+?)\*\*/);
+---
+
+{parts.map((part, i) => (i % 2 === 1 ? <strong>{part}</strong> : part))}

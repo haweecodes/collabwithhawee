@@ -1,0 +1,72 @@
+---
+import { results } from '../data/results';
+---
+
+<section class="section results">
+  <h2>What changes when I join a team</h2>
+  <ul class="grid" role="list">
+    {results.map((result) => (
+      <li class="card">
+        <p class="value">{result.value}</p>
+        <p class="label">{result.label}</p>
+        <p class="detail">{result.detail}</p>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* 1 card across on phones, 2 on tablets, 4 on desktop. */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 37.5em) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 62.5em) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 28px;
+    border-radius: var(--radius);
+    background: var(--color-tint);
+  }
+
+  .value {
+    font-size: var(--text-result);
+    font-weight: var(--weight-heading);
+    line-height: 1;
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-accent);
+  }
+
+  .label {
+    font-weight: 700;
+  }
+
+  .detail {
+    font-size: var(--text-small);
+    color: var(--color-tint-text);
+  }
+</style>
