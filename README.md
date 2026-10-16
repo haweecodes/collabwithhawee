@@ -31,5 +31,4 @@ The first time you run the tests, install the browser with `npx playwright insta
 
 - [ ] Domain: set `SITE_URL` or replace the placeholder in `astro.config.mjs`. On Vercel the production domain is used automatically.
 - [ ] FlowWork screenshot: see `src/data/projects.ts`.
-- [ ] Testimonial: `src/data/testimonial.ts`.
 - [ ] Hero photo: `src/assets/sajib.jpg` is the existing portrait. The design asks for a portrait-mode photo in natural light with a real smile.
