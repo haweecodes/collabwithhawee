@@ -1,0 +1,80 @@
+---
+import { SITE } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="cta">
+    <div class="copy">
+      <h2>Is your frontend slowing the team down?</h2>
+      <p>
+        Tell me what you're building and where it hurts. I work remotely and I'm open to relocating.
+      </p>
+    </div>
+    <a class="cta-btn" href={SITE.linkedIn} rel="me">
+      Connect on LinkedIn
+    </a>
+  </div>
+  <p class="copyright">
+    © {year} {SITE.name}
+  </p>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--section-gap);
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 56px clamp(24px, 5vw, 40px);
+    border-radius: var(--radius-band);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 560px;
+  }
+
+  h2 {
+    font-size: var(--text-cta);
+    line-height: 1.15;
+    color: var(--color-on-primary);
+  }
+
+  .copy p {
+    color: var(--color-on-primary-muted);
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: var(--radius-btn);
+    background: var(--color-footer-btn);
+    color: var(--color-footer-btn-text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* The default blue ring doesn't show up on the petrol band. */
+  .cta-btn:focus-visible {
+    outline-color: var(--color-on-primary);
+  }
+
+  .copyright {
+    margin-top: 32px;
+    font-size: var(--text-fine);
+    color: var(--color-text-subtle);
+  }
+</style>
