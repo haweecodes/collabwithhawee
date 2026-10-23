@@ -9,6 +9,8 @@ html {
   text-size-adjust: 100%;
   /* Section links and keyboard focus land below the sticky header, not under it. */
   scroll-padding-top: calc(var(--header-height) + 16px);
+  /* The reduced-motion rule at the end of this file turns this off for those who ask. */
+  scroll-behavior: smooth;
 }
 
 body {

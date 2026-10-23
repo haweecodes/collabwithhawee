@@ -77,7 +77,18 @@ test.describe('home page', () => {
     expect(tops).toEqual([...tops].sort((a, b) => a - b));
   });
 
+  test('scrolls smoothly unless the visitor prefers reduced motion', async ({ page }) => {
+    const scrollBehavior = () =>
+      page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior);
+    expect(await scrollBehavior()).toBe('smooth');
+
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    expect(await scrollBehavior()).toBe('auto');
+  });
+
   test('keeps the header in view, clear of the section it jumps to', async ({ page }) => {
+    // Jump instantly, so the positions below are where the scroll ends, not mid-animation.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     const nav = page.getByRole('navigation', { name: 'Main' });
     await nav.getByRole('link', { name: 'Experience' }).click();
     await expect(page).toHaveURL(/#experience$/);
