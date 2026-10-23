@@ -1,22 +1,50 @@
 export const SITE = {
   name: 'Sajib Hawee',
-  jobTitle: 'Senior Frontend Engineer',
-  headline: 'I make big React codebases fast, reliable and easy to ship.',
+  jobTitle: 'Senior Full-Stack Engineer',
+  headline: 'I build fast, reliable web products, front end to back end.',
   description:
-    'Sajib Hawee is a senior frontend engineer with 7+ years of React and TypeScript, leading migrations, performance work and testing for product teams.',
+    'Sajib Hawee is a senior full-stack software engineer with 7+ years of React, TypeScript and Node.js, building fast, reliable web apps with an AI-assisted workflow.',
   locality: 'Dhaka',
   countryCode: 'BD',
   linkedIn: 'https://linkedin.com/in/sajib-hawee-2a818b154',
   medium: 'https://haweecodes.medium.com/',
+  github: 'https://github.com/haweecodes',
   // Built from scripts/cv.html with `npm run cv`.
   cvPath: '/sajib-hawee-cv.pdf',
-  knowsAbout: ['React', 'TypeScript', 'Nx', 'Vite', 'Playwright', 'Frontend architecture'],
+  alumniOf: 'American International University Bangladesh',
+  knowsLanguage: ['English', 'Bangla', 'Hindi'],
+  knowsAbout: [
+    'Full-stack development',
+    'React',
+    'TypeScript',
+    'Node.js',
+    'Express',
+    'NestJS',
+    'Amazon Aurora',
+    'Auth0',
+    'AI-assisted development',
+    'Claude Code',
+    'Prompt engineering',
+    'SaaS billing and quoting',
+    'Next.js',
+    'Nx',
+    'Vite',
+    'Webpack',
+    'Jest',
+    'Playwright',
+    'AWS',
+    'CI/CD',
+    'Frontend architecture',
+    'Web performance',
+    'Web accessibility',
+    'Design systems',
+  ],
 } as const;
 
-/** Section anchors on the home page, used by the header nav. */
+/** Section anchors on the home page, used by the header nav. Keep them in page order. */
 export const NAV_LINKS = [
+  { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'work', label: 'Projects' },
   { id: 'writing', label: 'Writing' },
-  { id: 'about', label: 'About' },
 ] as const;

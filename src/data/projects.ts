@@ -29,7 +29,7 @@ export const projects: Project[] = [
   {
     name: 'FlowWork',
     description:
-      'One workplace app for chat and tasks. Any message can become a task on a Kanban board. React, Socket.IO, Express and Nx.',
+      'A full-stack app for team chat and tasks, where any message can become a task on a Kanban board. React frontend, Express API and real-time updates with Socket.IO, in an Nx monorepo.',
     url: 'https://haweecodes-work.vercel.app/',
     screenshotTodo: '[FlowWork screenshot]',
   },

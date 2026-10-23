@@ -1,6 +1,6 @@
 # sajib-hawee
 
-Personal site for Sajib Hawee, Senior Frontend Engineer. Built with Astro as a static site: every page ships as plain HTML with no client-side JavaScript. Deployed on Vercel.
+Personal site for Sajib Hawee, Senior Full-Stack Engineer. Built with Astro as a static site: every page ships as plain HTML with no client-side JavaScript. Deployed on Vercel.
 
 ## Commands
 
@@ -25,10 +25,9 @@ The first time you run the tests, install the browser with `npx playwright insta
 - Project screenshots are in `src/assets/projects/`, cropped to 16:10.
 - The résumé PDF is built from `scripts/cv.html`. Edit it, then run `npm run cv`. Keep phone and email out: the PDF is public.
 - Design tokens are in `src/styles/tokens.css`.
-- SEO tags and JSON-LD come from `src/components/Seo.astro`. The OG image is generated at build time by `src/pages/og/home.png.ts`.
+- SEO tags come from `src/components/Seo.astro`, and the JSON-LD graph is built in `src/pages/index.astro`. The OG image is generated at build time by `src/pages/og/home.png.ts`.
+- The FAQ answers are in `src/data/faq.ts`. They're shown on the page, published as FAQPage JSON-LD and included in `/llms.txt` (`src/pages/llms.txt.ts`). AI answer engines quote them on their own, so each answer should name Sajib and stand alone.
 
 ## TODO
 
-- [ ] Domain: set `SITE_URL` or replace the placeholder in `astro.config.mjs`. On Vercel the production domain is used automatically.
-- [ ] FlowWork screenshot: see `src/data/projects.ts`.
-- [ ] Hero photo: `src/assets/sajib.jpg` is the existing portrait. The design asks for a portrait-mode photo in natural light with a real smile.
+- [ ] FlowWork screenshot: see `src/data/projects.ts`.- [ ] Hero photo: `src/assets/sajib.jpg` is the existing portrait. The design asks for a portrait-mode photo in natural light with a real smile.

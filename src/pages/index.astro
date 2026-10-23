@@ -2,45 +2,88 @@
 import { getImage } from 'astro:assets';
 import photo from '../assets/sajib.jpg';
 import Experience from '../components/Experience.astro';
+import Faq from '../components/Faq.astro';
 import Hero from '../components/Hero.astro';
 import HowIWork from '../components/HowIWork.astro';
 import Projects from '../components/Projects.astro';
 import Results from '../components/Results.astro';
 import WritingAndTools from '../components/WritingAndTools.astro';
 import { SITE } from '../consts';
+import { experience } from '../data/experience';
+import { faqs } from '../data/faq';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const portrait = await getImage({ src: photo, width: 600, height: 720 });
 
-const person = {
+const title = `${SITE.name} · ${SITE.jobTitle}`;
+const url = new URL('/', Astro.site).href;
+const id = (fragment: string) => ({ '@id': `${url}#${fragment}` });
+
+// One linked graph, so search and AI answer engines read the site, the page, the person
+// and the FAQ as the same entity rather than four unrelated things.
+const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': new URL('/#person', Astro.site).href,
-  name: SITE.name,
-  jobTitle: SITE.jobTitle,
-  description: SITE.description,
-  url: new URL('/', Astro.site).href,
-  image: new URL(portrait.src, Astro.site).href,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: SITE.locality,
-    addressCountry: SITE.countryCode,
-  },
-  sameAs: [SITE.linkedIn, SITE.medium],
-  knowsAbout: SITE.knowsAbout,
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      ...id('website'),
+      url,
+      name: SITE.name,
+      inLanguage: 'en',
+      publisher: id('person'),
+    },
+    {
+      '@type': 'ProfilePage',
+      ...id('profile'),
+      url,
+      name: title,
+      description: SITE.description,
+      inLanguage: 'en',
+      isPartOf: id('website'),
+      mainEntity: id('person'),
+      // Vercel builds on every push, so the build date is when the content last changed.
+      dateModified: new Date().toISOString(),
+    },
+    {
+      '@type': 'Person',
+      ...id('person'),
+      name: SITE.name,
+      jobTitle: SITE.jobTitle,
+      description: SITE.description,
+      url,
+      image: new URL(portrait.src, Astro.site).href,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: SITE.locality,
+        addressCountry: SITE.countryCode,
+      },
+      worksFor: { '@type': 'Organization', name: experience[0].company },
+      alumniOf: { '@type': 'CollegeOrUniversity', name: SITE.alumniOf },
+      knowsLanguage: SITE.knowsLanguage,
+      knowsAbout: SITE.knowsAbout,
+      sameAs: [SITE.linkedIn, SITE.github, SITE.medium],
+    },
+    {
+      '@type': 'FAQPage',
+      ...id('faq'),
+      url,
+      isPartOf: id('website'),
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+  ],
 };
 ---
 
-<BaseLayout
-  home
-  title={`${SITE.name} · ${SITE.jobTitle}`}
-  description={SITE.description}
-  jsonLd={person}
->
+<BaseLayout home title={title} description={SITE.description} jsonLd={structuredData}>
   <Hero />
   <Results />
   <HowIWork />
   <Experience />
   <Projects />
   <WritingAndTools />
+  <Faq />
 </BaseLayout>

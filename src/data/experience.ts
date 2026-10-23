@@ -16,8 +16,10 @@ export const experience: Role[] = [
     highlights: [
       'Led the Webpack to Vite migration: local builds **40% faster** and a simpler CI/CD pipeline.',
       'Moved the product to an Nx monorepo: builds **25% faster**, releases **30% more efficient**.',
+      'Owned the supporting Express services, improving API reliability, and debugged backend and infrastructure issues across Amazon Aurora, Auth0 and CORS.',
+      'Made Claude an everyday engineering partner: debugging, planning upgrades and working through billing and quoting logic, with structured prompts that drive Claude Code.',
       'Grew Jest and Playwright coverage by **60%**, cutting regression defects by **30%**.',
-      'Improved app performance by **10%** through modular architecture and rendering work. Mentored junior engineers and owned supporting Express services.',
+      'Improved app performance by **10%** through modular architecture and rendering work. Mentored junior engineers.',
     ],
   },
   {
