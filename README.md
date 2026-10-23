@@ -26,7 +26,7 @@ The first time you run the tests, install the browser with `npx playwright insta
 - The résumé PDF is built from `scripts/cv.html`. Edit it, then run `npm run cv`. Keep phone and email out: the PDF is public.
 - Design tokens are in `src/styles/tokens.css`.
 - SEO tags come from `src/components/Seo.astro`, and the JSON-LD graph is built in `src/pages/index.astro`. The OG image is generated at build time by `src/pages/og/home.png.ts`.
-- The FAQ answers are in `src/data/faq.ts`. They're shown on the page, published as FAQPage JSON-LD and included in `/llms.txt` (`src/pages/llms.txt.ts`). AI answer engines quote them on their own, so each answer should name Sajib and stand alone.
+- The FAQ answers are in `src/data/faq.ts`. They're shown on the page, published as FAQPage JSON-LD and included in `/llms.txt` (`src/pages/llms.txt.ts`). AI answer engines quote an answer next to its question, so each one should make sense on its own. Add context the rest of the page doesn't give, rather than repeating it.
 
 ## TODO
 

@@ -1,50 +1,40 @@
-import { experience } from './experience';
-
 export interface Faq {
   question: string;
   answer: string;
 }
 
-const [current] = experience;
-const allRoles = new Intl.ListFormat('en', { type: 'conjunction' }).format(
-  experience.map((role) => `${role.company} (${role.title}, ${role.period})`),
-);
-
 // Shown on the home page and published as FAQPage structured data and in /llms.txt.
-// AI answer engines quote these on their own, so each answer names Sajib and makes
-// sense without the rest of the page.
+// AI answer engines quote an answer next to its question, so each one should make sense
+// on its own. Add context the rest of the page doesn't give, rather than repeating it.
 export const faqs: Faq[] = [
   {
     question: 'Who is Sajib Hawee?',
-    answer: `Sajib Hawee is a senior full-stack software engineer based in Dhaka, Bangladesh, with 7+ years of React, TypeScript and Node.js experience. Sajib currently works remotely for ${current.company}, a US SaaS company, on billing and quoting features across the React frontend and its supporting Express services.`,
-  },
-  {
-    question: 'Is Sajib Hawee a frontend or a full-stack engineer?',
     answer:
-      "Full-stack. Sajib Hawee's deepest experience is in React and TypeScript, and Sajib also builds and maintains Node.js services with Express and NestJS, sets up CI/CD pipelines on GitLab and Bitbucket, and automates deployments to AWS. At MonetizeNow, Sajib owns the supporting Express services alongside the frontend and debugs backend and infrastructure issues across Amazon Aurora, Auth0 and CORS.",
+      'Sajib Hawee is a senior full-stack engineer based in Dhaka, Bangladesh, who has worked with React and TypeScript since 2018. The current role is at MonetizeNow, a US SaaS company, building billing and quoting features across the React frontend and the Express services behind it.',
   },
   {
-    question: 'How does Sajib Hawee use AI in engineering work?',
+    question: 'What products has Sajib Hawee built?',
     answer:
-      'At MonetizeNow, Sajib Hawee uses Claude as an engineering partner: debugging and planning upgrades in a React and TypeScript monorepo, working through backend and infrastructure issues such as Amazon Aurora, Auth0 and CORS, and reasoning through how billing and quoting features should behave. Sajib writes structured prompts that drive Claude Code through code changes, corrects the model when it misreads a problem, and steers each session to a decision.',
+      "At work: billing and quoting features at MonetizeNow, internal fintech tools for ShopUp's operational and financial workflows, a cross-team design system and an e-signature flow at SELISE, and dashboards and offline-capable point-of-sale systems at iQuantile. On the side: Guiddance, which walks new users through a product step by step; FlowWork, a real-time app where any chat message can become a task on a Kanban board; and a typing speed test.",
   },
   {
-    question: 'What does Sajib Hawee specialize in?',
+    question: "What is Sajib Hawee's experience with React and TypeScript?",
     answer:
-      'Sajib Hawee specializes in full-stack web development with React, TypeScript and Node.js: building features from the interface to the API with Express and NestJS, AI-assisted development with Claude Code, build tooling migrations such as Webpack to Vite and Nx monorepos, performance work, Jest and Playwright test coverage, CI/CD with AWS deployments, and accessible interfaces built to WCAG 2.1.',
+      'Since 2018, across four quite different products: point-of-sale dashboards, a shared design system, fintech tools and a US SaaS platform. The recent work has been at the scale of the whole codebase: moving a product into an Nx monorepo, replacing Webpack with Vite, and keeping a large React and TypeScript codebase easy for a team to change. Next.js, Redux and accessible UI built to WCAG 2.1 are part of the toolkit too.',
   },
   {
-    question: 'What results has Sajib Hawee delivered?',
+    question: 'How does Sajib Hawee approach performance and testing?',
     answer:
-      'At MonetizeNow, Sajib Hawee led the Webpack to Vite migration that made local builds 40% faster, moved the product to an Nx monorepo for 25% faster builds, and grew test coverage by 60%, cutting regression defects by 30%. At ShopUp, Sajib removed 75% of unnecessary network requests and built fintech flows that reduced cash leakage by 35%.',
+      'Performance means two things: how fast the product feels and how fast the team can ship it. At ShopUp, reworking how components called the API removed 75% of unnecessary network requests. At MonetizeNow, replacing Webpack with Vite made local builds 40% faster. Testing keeps that pace safe: growing Jest and Playwright coverage by 60% cut regression defects by 30%.',
   },
   {
-    question: 'Where has Sajib Hawee worked?',
-    answer: `Sajib Hawee has worked at ${allRoles}.`,
-  },
-  {
-    question: 'Is Sajib Hawee open to remote work or relocation?',
+    question: 'How does Sajib Hawee use AI in software engineering?',
     answer:
-      'Yes. Sajib Hawee has worked remotely with American product teams for years, is open to relocating, and takes introductions on LinkedIn.',
+      'As an engineering partner rather than an autopilot. At MonetizeNow, Claude is part of debugging, planning upgrades across the monorepo, working through backend issues with Amazon Aurora, Auth0 and CORS, and reasoning about how billing and quoting features should behave. Code changes go through Claude Code, driven by structured prompts Sajib writes. The approach is to start from the real situation, correct the model when it misreads, and steer toward a decision.',
+  },
+  {
+    question: 'Is Sajib Hawee available for remote work or relocation?',
+    answer:
+      'Both. Sajib has worked remotely with American teams for years, including in the current role, and is open to relocating. LinkedIn is the best place to start a conversation.',
   },
 ];
