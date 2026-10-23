@@ -1,9 +1,14 @@
+// The first role, at iQuantile, started in January 2018. The count is taken at build time,
+// so it goes up on its own; Vercel rebuilds on every push.
+const MS_PER_YEAR = 365.25 * 24 * 60 * 60 * 1000;
+const yearsOfExperience = Math.floor((Date.now() - Date.UTC(2018, 0, 1)) / MS_PER_YEAR);
+
 export const SITE = {
   name: 'Sajib Hawee',
   jobTitle: 'Senior Full-Stack Engineer',
   headline: 'I build fast, reliable web products, front end to back end.',
-  description:
-    'Sajib Hawee is a senior full-stack software engineer with 7+ years of React, TypeScript and Node.js, building fast, reliable web apps with an AI-assisted workflow.',
+  yearsOfExperience,
+  description: `Sajib Hawee is a senior full-stack software engineer with ${yearsOfExperience}+ years across React, TypeScript and Node.js, building reliable web apps with an AI-assisted workflow.`,
   locality: 'Dhaka',
   countryCode: 'BD',
   linkedIn: 'https://linkedin.com/in/sajib-hawee-2a818b154',
